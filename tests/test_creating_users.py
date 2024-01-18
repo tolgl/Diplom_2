@@ -37,7 +37,7 @@ class TestCreateUser:
                                  ['', '12345678', 'test'],
                                  ['', '', '']
                              ])
-    def test_create_user_with_same_data(self, creating_new_user, email, password, name):
+    def test_create_user_with_blank_fields(self, creating_new_user, email, password, name):
         payload = {
             "email": email,
             "password": password,
