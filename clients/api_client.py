@@ -25,3 +25,11 @@ class ApiClient:
                                        headers={"Content-type": "application/json", "Authorization": headers})
 
         return response_delete
+
+    def patch(self, path, payload, headers=None):
+        response_patch = requests.patch(url=self.base_url + path,
+                                        data=json.dumps(payload),
+                                        headers={"Content-type": "application/json", "Authorization": headers})
+
+        return response_patch
+
