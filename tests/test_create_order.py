@@ -4,7 +4,7 @@ from path.path_api import ApiPath
 from test_data import generate_random_string
 
 
-class TestCreateUser:
+class TestCreateOrder:
 
     @allure.title('Проверка создания заказа с авторизацией и ингредиентами')
     def test_create_order_with_ingredients_and_authorization(self, creating_new_user, get_id_ingredients):
