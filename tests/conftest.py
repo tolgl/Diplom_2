@@ -1,4 +1,5 @@
 import pytest
+import random
 from clients.api_client import ApiClient
 from path.path_api import ApiPath
 from test_data import generate_random_string
@@ -33,3 +34,15 @@ def creating_new_user():
 
     api.delete(path=f'{ApiPath.path_get_user}',
                headers=response.json()['accessToken'])
+
+
+@pytest.fixture()
+def get_id_ingredients(creating_new_user):
+    ingredients_id = []
+    api = ApiClient()
+    response = api.get(path=ApiPath.path_get_ingredients)
+
+    for i in response.json()['data']:
+        ingredients_id.append(i['_id'])
+
+    return random.choice(ingredients_id)
