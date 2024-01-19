@@ -31,5 +31,5 @@ def creating_new_user():
 
     yield [login_pass, response]
 
-    api.delete(path=f'{ApiPath.path_del_user}',
+    api.delete(path=f'{ApiPath.path_get_user}',
                headers=response.json()['accessToken'])
