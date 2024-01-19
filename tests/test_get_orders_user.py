@@ -4,7 +4,7 @@ from clients.api_client import ApiClient
 from path.path_api import ApiPath
 
 
-class TestCreateUser:
+class TestGetOrderUser:
 
     @allure.title('Получение заказа авторизованного пользователя')
     def test_get_list_orders_authorized_user(self, creating_new_user, get_id_ingredients):
