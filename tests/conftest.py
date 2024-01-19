@@ -7,7 +7,7 @@ from test_data import generate_random_string
 @pytest.fixture()
 def creating_new_user():
 
-    login_pass =[]
+    login_pass = []
     # генерируем емаил, пароль и имя пользователя
     email = f'{generate_random_string(5)}@mail.ru'
     password = generate_random_string(6)
