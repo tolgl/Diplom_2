@@ -13,9 +13,10 @@ class ApiClient:
                                       headers={"Content-type": "application/json", "Authorization": headers})
         return response_post
 
-    def get(self, path, get_params=None):
+    def get(self, path, get_params=None, headers=None):
         response_get = requests.get(url=self.base_url + path,
-                                    params=get_params)
+                                    params=get_params,
+                                    headers={"Authorization": headers})
 
         return response_get
 
