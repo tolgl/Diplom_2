@@ -29,7 +29,7 @@ class TestLoginUser:
                                  [f'{generate_random_string(7)}@mail.ru', ''],
                                  ['', '']
                              ])
-    def test_login_non_existing_user(self, creating_new_user, email, password):
+    def test_login_user_with_invalid_email_and_password(self, creating_new_user, email, password):
         payload = {
             "email": email,
             "password": password
