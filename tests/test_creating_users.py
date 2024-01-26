@@ -47,6 +47,6 @@ class TestCreateUser:
         api = ApiClient()
         response = api.post(path=ApiPath.path_create_user,
                             payload=payload)
-        print(response.json())
+
         assert response.status_code == 403
         assert response.json()['message'] == 'Email, password and name are required fields'
