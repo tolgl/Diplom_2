@@ -3,15 +3,27 @@ import pytest
 
 from clients.api_client import ApiClient
 from path.path_api import ApiPath
+from test_data import generate_random_string
 
 
 class TestCreateUser:
 
     @allure.title('Проверка создания уникального пользователя')
-    def test_successful_create_user_unique_data(self, creating_new_user):
+    def test_successful_create_user_unique_data(self):
+        payload = {
+            "email": f'{generate_random_string(5)}@mail.ru',
+            "password": generate_random_string(6),
+            "name": generate_random_string(6)
+        }
 
-        assert creating_new_user[1].status_code == 200
-        assert creating_new_user[1].json()['accessToken'] != ''
+        api = ApiClient()
+        response = api.post(path=ApiPath.path_create_user,
+                            payload=payload)
+        api.delete(path=f'{ApiPath.path_get_user}',
+                   headers=response.json()['accessToken'])
+
+        assert response.status_code == 200
+        assert response.json()['accessToken'] != ''
 
     @allure.title('Проверка повторного создания существующего пользователя')
     def test_create_user_with_same_data(self, creating_new_user):
