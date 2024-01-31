@@ -1,6 +1,5 @@
 import allure
 import pytest
-
 from clients.api_client import ApiClient
 from path.path_api import ApiPath
 from test_data import generate_random_string
