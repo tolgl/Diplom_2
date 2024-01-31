@@ -37,7 +37,7 @@ def creating_new_user():
 
 
 @pytest.fixture()
-def get_id_ingredients(creating_new_user):
+def get_id_ingredients():
     ingredients_id = []
     api = ApiClient()
     response = api.get(path=ApiPath.path_get_ingredients)
